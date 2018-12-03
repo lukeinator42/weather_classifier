@@ -1,32 +1,40 @@
 from random import seed
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-
 import numpy as np
 
-from sklearn.metrics import accuracy_score, roc_curve, roc_auc_score, precision_recall_curve
+from sklearn.metrics import accuracy_score, roc_curve, roc_auc_score, precision_recall_curve, average_precision_score
 from sklearn.preprocessing import KBinsDiscretizer
+
+from sklearn.utils import resample
 
 import matplotlib.pyplot as plt
 from sklearn.svm import LinearSVC
 
-seed(41)
+from util import resample_training_data
+
+seed(42)
 
 curve = 'roc'
 balance_data = False
 
 est = KBinsDiscretizer(n_bins=2, encode='ordinal', strategy='uniform')
 
+
 x_train = np.load('./x_train.npy')
 y_train_raw = np.load('./y_train.npy')
 y_train = np.array([0 if x < 2.0 else 1 for x in y_train_raw])
+
+if balance_data:
+    x_train, y_train = resample_training_data(x_train, y_train)
+
+
 
 x_test = np.load('./x_test.npy')
 y_test_raw = np.load('./y_test.npy')
 y_test = np.array([0 if x < 2.0 else 1 for x in y_test_raw])
 
-
+if balance_data:
+    x_test, y_test = resample_training_data(x_test, y_test)
 
 
 clf = LinearSVC()
@@ -54,22 +62,29 @@ if curve == 'roc':
 
     plt.ylabel("True Positive Rate")
     plt.xlabel("False Positive Rate")
-    plt.title("Raining Classifier ROC")
+
+    if balance_data:
+        plt.title("Raining Classifier Balanced ROC")
+    else:
+        plt.title("Raining Classifier ROC")
 
     plt.show()
 
 elif curve == 'pr':
     precision, recall, thresholds = precision_recall_curve(y_test, y_score)
+    average_precision = average_precision_score(y_test, y_score)
 
-    plt.plot(precision, recall)
+    plt.plot(recall, precision)
 
-    plt.plot([1, 0], [0, 1], 'k--')
-
-    plt.legend(["rain classifier", "randomly guessing"])
+    plt.legend(["rain classifier (average precision = %0.2f)" % average_precision])
 
     plt.ylabel("Precision")
     plt.xlabel("Recall")
-    plt.title("Raining Classifier Precision/Recall")
+
+    if balance_data:
+        plt.title("Raining Classifier Balanced Precision/Recall")
+    else:
+        plt.title("Raining Classifier Precision/Recall")
 
     plt.show()
 
