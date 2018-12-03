@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20051201-20061201-PID111833023.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20061201-20071201-PID111822920.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20071201-20081201-PID111807379.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20081201-20091201-PID111459241.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20081201-20091201-PID111800771.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20091201-20101201-PID111410239.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20101201-20111201-PID111338088.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20111201-20121201-PID111237958.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20121201-20131201-PID111229276.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20131201-20141201-PID111220119.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20141201-20151201-PID111137585.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20151201-20161201-PID111055675.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20161201-20171201-PID111018122.csv" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/data/ACISDailyData-20171201-20181201-PID110911349.csv" charset="UTF-16" />
+  </component>
+</project>
