@@ -24,6 +24,8 @@ x_train = np.load('./x_train.npy')
 y_train_raw = np.load('./y_train.npy')
 y_train = np.array([0 if x < 2.0 else 1 for x in y_train_raw])
 
+
+
 if balance_data:
     x_train, y_train = resample_training_data(x_train, y_train)
 
@@ -32,6 +34,8 @@ if balance_data:
 x_test = np.load('./x_test.npy')
 y_test_raw = np.load('./y_test.npy')
 y_test = np.array([0 if x < 2.0 else 1 for x in y_test_raw])
+
+print(y_test.sum())
 
 if balance_data:
     x_test, y_test = resample_training_data(x_test, y_test)
